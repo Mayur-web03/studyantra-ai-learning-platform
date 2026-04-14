@@ -1,0 +1,397 @@
+/* ===== Base Layout ===== */
+
+.layout-container {
+  display: flex;
+  height: 100vh;
+  background-color: #F4F6F8;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Sidebar */
+
+.sidebar {
+  background-color: #E9EEF3;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+/* Open & Close */
+.sidebar.open {
+  width: 260px;
+  padding: 20px;
+}
+
+.sidebar.closed {
+  width: 70px;
+  padding: 20px 10px;
+}
+
+/* Header Row */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sidebar.closed .sidebar-header {
+  justify-content: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3A7CA5;
+}
+
+/* New Chat Button */
+
+.new-chat-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #3A7CA5;
+  font-weight: 600;
+  margin-bottom: 25px;
+  transition: all 0.2s ease;
+}
+
+/* OPEN STATE */
+.new-chat-btn.open {
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+/* COLLAPSED STATE */
+.new-chat-btn.collapsed {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Icon */
+.new-chat-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Text */
+.new-chat-text {
+  white-space: nowrap;
+}
+
+/* Hover */
+.new-chat-btn:hover {
+  opacity: 0.8;
+}
+
+/* When sidebar closed */
+.sidebar.closed .new-chat-btn {
+  justify-content: center;
+}
+
+/* Optional nice hover */
+.new-chat-btn:hover {
+  background-color: rgba(58, 124, 165, 0.08);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+.new-chat-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* History Layout */
+.history {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #6B7C93;
+  padding: 10px 12px;
+  margin: 4px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.history-item:hover {
+  background-color: rgba(58, 124, 165, 0.08);
+}
+
+.history-item.active {
+  background-color: rgba(58, 124, 165, 0.15);
+  color: #3A7CA5;
+  font-weight: 500;
+}
+
+.history-item-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+/* Edit Input */
+.edit-input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #3A7CA5;
+  color: #3A7CA5;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+/* Hover Actions (Pencil / Trash) */
+.history-actions {
+  display: none;
+  gap: 8px;
+}
+
+.history-item:hover .history-actions {
+  display: flex;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: #6B7C93;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.action-btn:hover {
+  color: #E63946;
+}
+
+.action-btn:first-child:hover {
+  color: #3A7CA5;
+}
+
+/* Sidebar Bottom UI */
+.sidebar-bottom {
+  margin-top: auto;
+  border-top: 1px solid #E1E8ED;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-btn,
+.logout-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #6B7C93;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.settings-btn:hover,
+.logout-btn:hover {
+  background-color: rgba(58, 124, 165, 0.08);
+  color: #3A7CA5;
+}
+
+/* Open/Collapsed States for Bottom Icons */
+.sidebar-bottom.open .settings-btn,
+.sidebar-bottom.open .logout-btn {
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.sidebar-bottom.collapsed .settings-btn,
+.sidebar-bottom.collapsed .logout-btn {
+  justify-content: center;
+}
+
+.sidebar-bottom .icon {
+  flex-shrink: 0;
+}
+
+/* ===== Main Content ===== */
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+/* Answer Card */
+
+.answer-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E1E8ED;
+  border-radius: 12px;
+  padding: 30px;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+/* AI Markdown Styles */
+.markdown-body {
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+.markdown-body p {
+  margin-bottom: 12px;
+}
+
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body pre {
+  background-color: #2F3640;
+  color: #F4F6F8;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 12px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.markdown-body code {
+  background-color: #E9EEF3;
+  color: #E63946;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.markdown-body li {
+  margin-bottom: 4px;
+}
+
+/* Input Section */
+
+.input-container {
+  display: flex;
+  gap: 10px;
+}
+
+.input-field {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #E1E8ED;
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #3A7CA5;
+}
+
+.send-btn {
+  background-color: #3A7CA5;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.send-btn:hover {
+  background-color: #326B8C;
+}
+
+/* ===== Right Panel ===== */
+
+.right-panel {
+  width: 120px;
+  border-left: 1px solid #E1E8ED;
+
+  display: flex;
+  justify-content: center;
+  /* vertical center */
+  align-items: center;
+  /* horizontal center */
+  padding-right: 12px;
+}
+
+/* Container */
+.subject-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+  /* push buttons right */
+}
+
+/* Buttons */
+.subject-btn {
+  background-color: #FFFFFF;
+  border: 1px solid #E1E8ED;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  color: #6B7C93;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Hover */
+.subject-btn:hover {
+  border-color: #3A7CA5;
+  color: #3A7CA5;
+  transform: translateX(-3px);
+}
+
+/* Active */
+.subject-btn.active {
+  background-color: #3A7CA5;
+  color: #FFFFFF;
+  border-color: #3A7CA5;
+}
